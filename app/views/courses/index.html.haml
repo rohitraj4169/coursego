@@ -1,0 +1,9 @@
+.text-center
+  Total Courses:
+  = @courses.count
+%br
+
+.card-columns
+  - @courses.each do |course|
+    = render 'courses/course', course: course
+%br
