@@ -22,3 +22,6 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/regular';
 @import '@fortawesome/fontawesome-free/scss/v4-shims';
 @import "./actiontext.scss";
+
+.form-control.is-invalid{ background-image: none; }
+.form-control.is-valid{ background-image: none; }

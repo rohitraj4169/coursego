@@ -3,14 +3,13 @@
     What do you want to learn today?
 
   .p-4
-
-.form-inline.my-2.my-lg-0
-  = form_tag(courses_path, method: :get) do
-    .input-group
-    = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm'
-    %span.input-group-append
-      %button.btn.btn-primary.btn-sm{:type => "submit"}
-        %span.fa.fa-search{"aria-hidden" => "true"}
+    .form-inline.my-2.my-lg-0
+      = form_tag(courses_path, method: :get) do
+        .input-group
+        = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm'
+        %span.input-group-append
+          %button.btn.btn-primary.btn-sm{:type => "submit"}
+            %span.fa.fa-search{"aria-hidden" => "true"}
 
 .card-group
   .card.card-body
@@ -43,24 +42,30 @@
     Learn on your schedule
 
 %hr
-%h2
-  Popular courses
-.card-columns
-  - @courses.each do |course|
-    = render 'courses/course', course: course
+.row
+  .col-md-4
+    %h2
+      .text-center.text-info
+        Popular courses
+    
+    - @courses.each do |course|
+      = render 'courses/course', course: course
+      .mt-4
+  .col-md-4
+    %h2 
+      .text-center.text-info
+        Top rated courses
+  
+    - @courses.each do |course|
+      = render 'courses/course', course: course
+      .mt-4
 
-%hr
-%h2 
-  Top rated courses
-.card-columns
-  - @courses.each do |course|
-    = render 'courses/course', course: course
-
-%hr
-%h2 
-  Latest courses
-.card-columns
-  - @latest_couses.each do |course|
-    = render 'courses/course', course: course
-
-%hr
+  .col-md-4
+    %h2 
+      .text-center.text-info
+        Latest courses
+    
+    - @latest_couses.each do |course|
+      = render 'courses/course', course: course
+      .mt-4
+   
