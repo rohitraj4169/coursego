@@ -5,24 +5,33 @@
 
   .form-inputs
     = f.input :title
-    = f.label :description
-    = f.rich_text_area :description
-    %small= f.error :description, class: 'text-danger'
+    = f.input :video_thumbnail
+    - if @course.video_thumbnail.attached?
+      = @course.video_thumbnail.filename
+    = f.input :video
+    - if @course.video.attached?
+      .text-success.mt--2
+        = @course.video.filename
+      = link_to 'Remove video and thumbnail', delete_video_course_path(@course), method: :delete, data: { confirm: 'Are you sure?' }
+    /= f.label :description
+    /= f.rich_text_area :description
+    /%small= f.error :description, class: 'text-danger'
+    = f.input :description, as: :rich_text_area
     = f.input :short_description
     = f.input :language, collection: Course.languages, include_blank: true
    
     = f.input :level, collection: Course.levels, include_blank: true
    
     = f.input :price
-    = f.label :image
-    .row
-    - if @course.image.attached?
-      = image_tag @course.image, height: "100px", width: "200px"
-      .row
-      = @course.image.filename
-    .row.mt-2
-    = f.file_field :image 
-    %small= f.error :image, class: 'text-danger'
+    -#= f.label :image
+    -#.row
+      -#- if @course.image.attached?
+      -#= image_tag @course.image, height: "100px", width: "200px"
+      -#.row
+      -#= @course.image.filename
+    -#.row.mt-2
+    -#= f.file_field :image 
+    -#%small= f.error :image, class: 'text-danger'
   .mt-3
   .form-actions
     = f.button :submit

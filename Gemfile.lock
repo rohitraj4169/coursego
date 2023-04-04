@@ -257,6 +257,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    video-js-rails (4.3.0.1)
+      railties (>= 3.1)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -313,6 +315,7 @@ DEPENDENCIES
   spring
   turbolinks (~> 5)
   tzinfo-data
+  video-js-rails
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)

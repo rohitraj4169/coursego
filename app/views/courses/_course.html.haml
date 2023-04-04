@@ -3,10 +3,20 @@
     .fa.fa-graduation-cap
     = link_to course.title, course_path(course)
   
-  - if course.image.attached?
+  -#- if course.image.attached?
+    -#.card-img-top
+      -#= image_tag course.image, height: "200px", width: "100%"
+  - if course.video.attached?
     .card-img-top
-      = image_tag course.image, height: "200px", width: "100%"
-
+      - if course.video_thumbnail.attached?
+        %video(controls="true" poster="#{url_for course.video_thumbnail}" width="100%" preload="metadata")
+          %source{src: rails_blob_url(course.video), type:"#{course.video.content_type}"}
+      - else
+        %video(controls="true" width="100%" preload="metadata")
+          %source{src: rails_blob_url(course.video), type:"#{course.video.content_type}"}
+        /VIDEO-JS VIDEO
+        /= content_tag :video, id: 'my-video' do
+        /= tag :source, src: url_for(course.video), type: course.video.content_type
   .card-body
     %small= course.rich_text_description
   .card-footer

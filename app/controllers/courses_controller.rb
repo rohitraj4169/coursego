@@ -1,6 +1,15 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: %i[ show edit update destroy ]
+  before_action :set_course, only: %i[ show edit update destroy delete_video ]
 
+    def delete_video
+      authorize @course, :edit?
+      @course.video.purge
+      @course.video_thumbnail.purge
+      redirect_to edit_course_path(@course), notice: 'Video successfully deleted!'
+    end
+  
+  
+  
   # GET /courses or /courses.json
   def index
     # if params[:title]
@@ -78,6 +87,6 @@ class CoursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def course_params
-       params.require(:course).permit(:title, :description, :short_description, :price, :language, :level, :image)
+       params.require(:course).permit(:title,  :video_thumbnail,:video, :description, :short_description, :price, :language, :level)
     end
 end
