@@ -26,7 +26,9 @@ gem "haml-rails"
 gem 'html2haml'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing'
+gem 'active_storage_validations'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -64,3 +66,7 @@ gem 'faker'
 gem 'devise'
 gem 'friendly_id', '~> 5.2.4'
 gem 'ransack'
+gem 'public_activity'
+gem "rolify"
+gem "pundit"
+gem 'ranked-model'

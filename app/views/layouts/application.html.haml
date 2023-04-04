@@ -10,9 +10,14 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    = render 'layouts/navigation'
-    %br
+
+
+%body.d-flex.flex-column.mt-0  
+  = render 'layouts/navigation'
+  %br
+  .page-content
     = render 'layouts/messages'
     = yield
-    %br
+  %br
+ 
+  = render 'layouts/footer'

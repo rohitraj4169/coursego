@@ -16,3 +16,5 @@ import "@fortawesome/fontawesome-free/css/all.css"
 require('stylesheets/application.css.scss')
 require("trix")
 require("@rails/actiontext")
+
+// import "../trix_editor_overrides"

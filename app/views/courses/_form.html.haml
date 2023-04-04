@@ -10,7 +10,19 @@
     %small= f.error :description, class: 'text-danger'
     = f.input :short_description
     = f.input :language, collection: Course.languages, include_blank: true
+   
     = f.input :level, collection: Course.levels, include_blank: true
+   
     = f.input :price
+    = f.label :image
+    .row
+    - if @course.image.attached?
+      = image_tag @course.image, height: "100px", width: "200px"
+      .row
+      = @course.image.filename
+    .row.mt-2
+    = f.file_field :image 
+    %small= f.error :image, class: 'text-danger'
+  .mt-3
   .form-actions
     = f.button :submit
