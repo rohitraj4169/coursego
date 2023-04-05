@@ -71,3 +71,4 @@ gem "rolify"
 gem "pundit"
 gem 'ranked-model'
 gem 'video-js-rails'
+gem 'recaptcha'
