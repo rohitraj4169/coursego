@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
     before_action :authenticate_user!
     before_action :set_global_variables, if: :user_signed_in?
+    
+    after_action :user_activity
+    
     #  protect_from_forgery
     include Pundit
    
@@ -20,5 +23,7 @@ class ApplicationController < ActionController::Base
     redirect_to(request.referrer || root_path)
   end
 
-
+  def user_activity
+    current_user.try :touch
+  end
 end

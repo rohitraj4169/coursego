@@ -3,13 +3,37 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :trackable, :confirmable
+         :recoverable, :rememberable, :validatable, :trackable, :confirmable,
+         :omniauthable, omniauth_providers: [:github]
 
 
   rolify
   has_many :courses
 
   after_create :assign_default_role
+
+
+
+   def self.from_omniauth(access_token)
+      data = access_token.info
+      user = User.where(email: data['email']).first
+
+      # Uncomment the section below if you want users to be created if they don't exist
+      unless user
+         user = User.create(
+            email: data['email'],
+            password: Devise.friendly_token[0,20],
+            confirmed_at: Time.now #autoconfirm user from omniauth
+         )
+      end
+      user
+  end
+
+
+
+
+
+
 
   def assign_default_role
     if User.count == 1
@@ -36,6 +60,9 @@ class User < ApplicationRecord
   
   validate :must_have_a_role, on: :update
 
+  def online?
+    updated_at>2.minutes.ago
+  end
   private
   def must_have_a_role
     unless roles.any?

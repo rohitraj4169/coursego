@@ -72,3 +72,4 @@ gem "pundit"
 gem 'ranked-model'
 gem 'video-js-rails'
 gem 'recaptcha'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'

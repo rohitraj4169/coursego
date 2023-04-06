@@ -9,10 +9,10 @@
   - if course.video.attached?
     .card-img-top
       - if course.video_thumbnail.attached?
-        %video(controls="true" poster="#{url_for course.video_thumbnail}" width="100%" preload="metadata")
+        %video(controls="true" controlslist="nodownload" poster="#{url_for course.video_thumbnail}" width="100%" preload="metadata" oncontextmenu="return false;")
           %source{src: rails_blob_url(course.video), type:"#{course.video.content_type}"}
       - else
-        %video(controls="true" width="100%" preload="metadata")
+        %video(controls="true" width="100%" preload="metadata" controlslist="nodownload" oncontextmenu="return false;" )
           %source{src: rails_blob_url(course.video), type:"#{course.video.content_type}"}
         /VIDEO-JS VIDEO
         /= content_tag :video, id: 'my-video' do

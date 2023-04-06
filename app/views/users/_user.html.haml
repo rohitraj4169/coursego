@@ -2,6 +2,13 @@
   .card-header
     .fa.fa-user
     = user.email
+    - if user.online?
+      .tooltip
+      .text-success.fa-solid.fa-circle
+        %span.tooltiptext Online
+      
+    - else
+      .text-danger.fa-solid.fa-circle
   .card-footer
     Signed up
     = time_ago_in_words(user.created_at)
