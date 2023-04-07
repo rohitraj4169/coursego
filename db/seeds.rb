@@ -3,9 +3,9 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-# User.create(email: 'rohit@example.com', password: 'rohit123', password_confirmation: 'rohit123')
+  movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+  Character.create(name: 'Luke', movie: movies.first)
+User.create(email: 'rohit@example.com', password: 'rohit123', password_confirmation: 'rohit123')
 30.times do
   Course.create!([{
     title: Faker::Educator.course_name,
