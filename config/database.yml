@@ -88,6 +88,9 @@ production:
   username: coursego
   password: <%= ENV['COURSEGO_DATABASE_PASSWORD'] %>
 
+# production:
+#   <<: *default
+#   url: Rails.application.credentials.dig(:DATABASE_URL)
 production:
   <<: *default
-  url: Rails.application.credentials.dig(:DATABASE_URL)
+  url: <%= ENV['DATABASE_URL'] %>
