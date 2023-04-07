@@ -2,6 +2,7 @@ class Course < ApplicationRecord
     validates :title, :short_description, :language, :price, :level,  presence: true
     validates :description,  presence: true, length: { :minimum => 5 }
     has_rich_text :description
+    has_many :lessons, dependent: :destroy
     # has_one_attached :image
     # validates :image,  content_type: ['image/jpeg', 'image/png', 'image/jpg'],
     #  size: { less_than: 1.megabytes, message: 'size should be under 1  Megabytes'}

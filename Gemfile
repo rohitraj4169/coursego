@@ -63,7 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'simple_form'
 gem 'faker'
-gem 'devise'
+# gem 'devise'
 gem 'friendly_id', '~> 5.2.4'
 gem 'ransack'
 gem 'public_activity'
@@ -72,4 +72,8 @@ gem "pundit"
 gem 'ranked-model'
 gem 'video-js-rails'
 gem 'recaptcha'
+gem "devise", github: "heartcombo/devise", branch: "main"
+gem 'omniauth-google-oauth2' #sign in with google
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-facebook'

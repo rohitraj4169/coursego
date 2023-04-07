@@ -2,7 +2,5 @@
 = render 'courses/course', course: @course
 .col-lg-6
 = link_to 'Add lesson', new_lesson_path(course_id: @course.id)
-.row
 - @lessons.each do |lesson|
     = render 'lessons/lesson', lesson: lesson
-        
