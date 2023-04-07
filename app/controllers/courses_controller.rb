@@ -42,7 +42,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     authorize @course
-    @course.user_id= current_user.id if current_user
+    @course.user_id= current_user.id if if user_signed_in?
     respond_to do |format|
       if @course.save
         format.html { redirect_to course_url(@course), notice: "Course was successfully created." }

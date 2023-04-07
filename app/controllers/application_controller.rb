@@ -24,6 +24,8 @@ class ApplicationController < ActionController::Base
   end
 
   def user_activity
-    current_user.try :touch
+    if user_signed_in?
+      current_user.try :touch
+    end
   end
 end
