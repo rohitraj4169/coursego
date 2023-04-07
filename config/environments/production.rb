@@ -64,15 +64,15 @@ config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || 
 
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { :host => "https://coursegobyrohit11.onrender.com" }
-  ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['SENDGRID_API_KEY'],
-    :password => ENV['SENDGRID_API_KEY'],
-    :domain => 'coursegobyrohit11.onrender.com',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => false
-  }
+  # ActionMailer::Base.smtp_settings = {
+  #   :user_name => ENV['SENDGRID_API_KEY'],
+  #   :password => ENV['SENDGRID_API_KEY'],
+  #   :domain => 'coursegobyrohit11.onrender.com',
+  #   :address => 'smtp.sendgrid.net',
+  #   :port => 587,
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => false
+  # }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
