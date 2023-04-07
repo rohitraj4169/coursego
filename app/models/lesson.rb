@@ -4,8 +4,8 @@ class Lesson < ApplicationRecord
   has_rich_text :content
   extend FriendlyId
   friendly_id :title, use: :slugged
-  # include PublicActivity::Model
-  # tracked owner: Proc.new{ |controller, model| controller.current_user  }
+  include PublicActivity::Model
+  tracked owner: Proc.new{ |controller, model| controller.current_user if controller.present? }
 
   def to_s
     title
