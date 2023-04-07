@@ -63,6 +63,7 @@ config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || 
   # config.active_job.queue_name_prefix = "coursego_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { :host => "https://coursegobyrohit11.onrender.com" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
