@@ -274,8 +274,8 @@ Devise.setup do |config|
   # config.omniauth :google_oauth2, "#{Rails.application.credentials.dig(:google_oauth2_client_id)}", "#{Rails.application.credentials.dig(:google_oauth2_client_secret)}"
   config.omniauth :google_oauth2, "510715517638-2ne34vekgb1bguj6p3p8dbip0fpu4cqu.apps.googleusercontent.com", "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"
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-#  config.omniauth :github, 'aff7dbe3dfeb53926d1c', 'f2c74cd752baf11645d007603d360e98336d94fb', scope: 'user,public_repo'
-  config.omniauth :github, "#{Rails.application.credentials.dig(:omniauth_github_client_id)}", "#{Rails.application.credentials.dig(:omniauth_github_client_secret)}", scope: 'user,public_repo'
+ config.omniauth :github, 'aff7dbe3dfeb53926d1c', 'f2c74cd752baf11645d007603d360e98336d94fb', scope: 'user,public_repo'
+  # config.omniauth :github, "#{Rails.application.credentials.dig(:omniauth_github_client_id)}", "#{Rails.application.credentials.dig(:omniauth_github_client_secret)}", scope: 'user,public_repo'
   # facebook
    config.omniauth :facebook, "#{Rails.application.credentials.dig(:facebook_client_id)}", "#{Rails.application.credentials.dig(:facebook_client_secret)}", scope: 'email,public_profile'
   
