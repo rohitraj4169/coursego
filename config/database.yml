@@ -93,4 +93,4 @@ test:
 #   url: Rails.application.credentials.dig(:DATABASE_URL)
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%#= ENV['DATABASE_URL'] %>

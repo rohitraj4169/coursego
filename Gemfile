@@ -77,3 +77,4 @@ gem 'omniauth-google-oauth2' #sign in with google
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-facebook'
+gem 'exception_notification'

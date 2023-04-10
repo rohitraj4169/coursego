@@ -74,6 +74,14 @@ config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || 
   #   :enable_starttls_auto => false
   # }
 
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+    email: {
+      deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+      email_prefix: '[PREFIX] ',
+      sender_address: %{"corsego error" <support@corsego.herokuapp.com>},
+      exception_recipients: %w{yshmarov@gmail.com}
+    }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
