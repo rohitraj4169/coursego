@@ -78,8 +78,8 @@ config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || 
     email: {
       deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
       email_prefix: '[PREFIX] ',
-      sender_address: %{"corsego error" <support@corsego.herokuapp.com>},
-      exception_recipients: %w{yshmarov@gmail.com}
+      sender_address: %{"corsego error" <rohitrajstartbitsolutions.com>},
+      exception_recipients: %w{sbrortest@gmail.com}
     }
 
   # Ignore bad email addresses and do not raise email delivery errors.
